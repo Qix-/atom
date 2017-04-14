@@ -236,7 +236,7 @@ class Project extends Model
   resolvePath: (uri) ->
     return unless uri
 
-    if uri?.match(/[A-Za-z0-9+-.]+:\/\//) # leave path alone if it has a scheme
+    if uri?.match(/^\s*[a-z][a-z0-9+.-]*:/i) # leave path alone if it has a scheme
       uri
     else
       if fs.isAbsolute(uri)
